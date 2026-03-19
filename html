@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shawdagar Super Shop</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fffdf8; /* Milkwhite */
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  header {
+    background-color: #f7f1e6;
+    padding: 20px;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0;
+    color: #6b4c3b;
+  }
+  nav {
+    background-color: #fffdf8;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  nav button {
+    background-color: #f7f1e6;
+    border: 1px solid #6b4c3b;
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #6b4c3b;
+    font-weight: bold;
+  }
+  nav button.active {
+    background-color: #6b4c3b;
+    color: #fffdf8;
+  }
+  .banner {
+    text-align: center;
+    padding: 30px 10px;
+    background-color: #f0e9e0;
+  }
+  .banner h2 {
+    margin: 0;
+    color: #6b4c3b;
+  }
+  .search-bar {
+    text-align: center;
+    margin: 15px 0;
+  }
+  .search-bar input {
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
+  .product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 200px;
+    margin: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  .product-card:hover {
+    transform: scale(1.05);
+  }
+  .product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  .product-card h3 {
+    margin: 10px 0 5px 0;
+    color: #6b4c3b;
+  }
+  .product-card p {
+    font-size: 14px;
+    color: #555;
+  }
+  .order-btn {
+    background-color: #f7f1e6;
+    color: #6b4c3b;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+  }
+  footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #f7f1e6;
+    color: #6b4c3b;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Shawdagar Super Shop</h1>
+</header>
+
+<div class="banner">
+  <h2>Fresh Products Delivered to Your Doorstep</h2>
+</div>
+
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterProducts()">
+</div>
+
+<nav>
+  <button class="tab-btn active" onclick="filterCategory('all')">All</button>
+  <button class="tab-btn" onclick="filterCategory('Chocolate')">Chocolate</button>
+  <button class="tab-btn" onclick="filterCategory('Rice')">Rice</button>
+  <button class="tab-btn" onclick="filterCategory('Masala')">Masala</button>
+</nav>
+
+<section class="products" id="products">
+  <!-- Chocolate -->
+  <div class="product-card" data-category="Chocolate">
+    <img src="https://via.placeholder.com/200x150?text=KitKat" alt="KitKat">
+    <h3>Chocolates - KitKat</h3>
+    <p>2/3/4 fingers. Delicious chocolate, perfect for snacks or gifts.</p>
+    <a class="order-btn" href="https://wa.me/8801742979385?text=Hi%2C+I+want+to+order+KitKat" target="_blank">Order Now</a>
+  </div>
+
+  <!-- Rice -->
+  <div class="product-card" data-category="Rice">
+    <img src="https://via.placeholder.com/200x150?text=Basmati+Rice" alt="Basmati Rice">
+    <h3>Rice - Basmati 1kg (Fortune)</h3>
+    <p>High-quality Fortune Basmati rice, aromatic & fluffy.</p>
+    <a class="order-btn" href="https://wa.me/8801742979385?text=Hi%2C+I+want+to+order+Basmati+Rice" target="_blank">Order Now</a>
+  </div>
+
+  <!-- Masala - Elachi -->
+  <div class="product-card" data-category="Masala">
+    <img src="https://via.placeholder.com/200x150?text=Elachi" alt="Elachi">
+    <h3>Masala - Elachi</h3>
+    <p>Premium Elachi for authentic flavor in dishes.</p>
+    <a class="order-btn" href="https://wa.me/8801742979385?text=Hi%2C+I+want+to+order+Elachi" target="_blank">Order Now</a>
+  </div>
+
+  <!-- Masala - Cumin -->
+  <div class="product-card" data-category="Masala">
+    <img src="https://via.placeholder.com/200x150?text=Cumin" alt="Cumin">
+    <h3>Masala - Cumin</h3>
+    <p>Fresh Cumin seeds to enhance every recipe.</p>
+    <a class="order-btn" href="https://wa.me/8801742979385?text=Hi%2C+I+want+to+order+Cumin" target="_blank">Order Now</a>
+  </div>
+</section>
+
+<section id="about" style="padding:20px;text-align:center;">
+  <h2>About Us</h2>
+  <p>Shawdagar Super Shop offers fresh and high-quality products at your doorstep. We specialize in chocolates, coffee, rice, masala, and more. Your satisfaction is our priority.</p>
+</section>
+
+<section id="contact" style="padding:20px;text-align:center;">
+  <h2>Contact Us</h2>
+  <p>WhatsApp: <a href="https://wa.me/8801742979385" target="_blank">01742-979385</a></p>
+</section>
+
+<footer>
+  &copy; 2026 Shawdagar Super Shop. All rights reserved.
+</footer>
+
+<script>
+function filterCategory(category) {
+  const products = document.querySelectorAll('.product-card');
+  const buttons = document.querySelectorAll('.tab-btn');
+  
+  buttons.forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  products.forEach(p => {
+    if(category === 'all' || p.getAttribute('data-category') === category) {
+      p.style.display = 'block';
+    } else {
+      p.style.display = 'none';
+    }
+  });
+}
+
+function filterProducts() {
+  const input = document.getElementById('searchInput').value.toLowerCase();
+  const products = document.querySelectorAll('.product-card');
+  products.forEach(p => {
+    const name = p.querySelector('h3').innerText.toLowerCase();
+    if(name.includes(input)) {
+      p.style.display = 'block';
+    } else {
+      p.style.display = 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
